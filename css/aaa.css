@@ -1,0 +1,17 @@
+.ps-tip {
+        position: absolute;
+        display: none;
+        width: 100%;
+        font-size: 14px;
+        text-align: center;
+        bottom: 8px;
+
+    }
+	
+.erro {
+        display: none;
+        width: 86%;
+        text-align: left;
+        margin: auto;
+        font-size: 14px;
+    }

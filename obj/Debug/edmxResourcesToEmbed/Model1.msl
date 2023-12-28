@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AcademicSystemModelStoreContainer" CdmEntityContainer="AcademicSystemEntities1">
+    <EntitySetMapping Name="class">
+      <EntityTypeMapping TypeName="AcademicSystemModel.class">
+        <MappingFragment StoreEntitySet="class">
+          <ScalarProperty Name="classid" ColumnName="classid" />
+          <ScalarProperty Name="classname" ColumnName="classname" />
+          <ScalarProperty Name="majorid" ColumnName="majorid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course">
+      <EntityTypeMapping TypeName="AcademicSystemModel.course">
+        <MappingFragment StoreEntitySet="course">
+          <ScalarProperty Name="cno" ColumnName="cno" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+          <ScalarProperty Name="totalperiod" ColumnName="totalperiod" />
+          <ScalarProperty Name="totalcredit" ColumnName="totalcredit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="institute">
+      <EntityTypeMapping TypeName="AcademicSystemModel.institute">
+        <MappingFragment StoreEntitySet="institute">
+          <ScalarProperty Name="insid" ColumnName="insid" />
+          <ScalarProperty Name="insname" ColumnName="insname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="major">
+      <EntityTypeMapping TypeName="AcademicSystemModel.major">
+        <MappingFragment StoreEntitySet="major">
+          <ScalarProperty Name="majorid" ColumnName="majorid" />
+          <ScalarProperty Name="majorname" ColumnName="majorname" />
+          <ScalarProperty Name="insid" ColumnName="insid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="section">
+      <EntityTypeMapping TypeName="AcademicSystemModel.section">
+        <MappingFragment StoreEntitySet="section">
+          <ScalarProperty Name="sectionid" ColumnName="sectionid" />
+          <ScalarProperty Name="cno" ColumnName="cno" />
+          <ScalarProperty Name="teachingyear" ColumnName="teachingyear" />
+          <ScalarProperty Name="term" ColumnName="term" />
+          <ScalarProperty Name="buildingid" ColumnName="buildingid" />
+          <ScalarProperty Name="roomid" ColumnName="roomid" />
+          <ScalarProperty Name="timeid" ColumnName="timeid" />
+          <ScalarProperty Name="weekid" ColumnName="weekid" />
+          <ScalarProperty Name="whichday" ColumnName="whichday" />
+          <ScalarProperty Name="whichweek" ColumnName="whichweek" />
+          <ScalarProperty Name="tclassid" ColumnName="tclassid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student">
+      <EntityTypeMapping TypeName="AcademicSystemModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="sno" ColumnName="sno" />
+          <ScalarProperty Name="sname" ColumnName="sname" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="insid" ColumnName="insid" />
+          <ScalarProperty Name="majorid" ColumnName="majorid" />
+          <ScalarProperty Name="classid" ColumnName="classid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="takeclass">
+      <EntityTypeMapping TypeName="AcademicSystemModel.takeclass">
+        <MappingFragment StoreEntitySet="takeclass">
+          <ScalarProperty Name="sno" ColumnName="sno" />
+          <ScalarProperty Name="cno" ColumnName="cno" />
+          <ScalarProperty Name="tclassid" ColumnName="tclassid" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teach">
+      <EntityTypeMapping TypeName="AcademicSystemModel.teach">
+        <MappingFragment StoreEntitySet="teach">
+          <ScalarProperty Name="tno" ColumnName="tno" />
+          <ScalarProperty Name="cno" ColumnName="cno" />
+          <ScalarProperty Name="tclassid" ColumnName="tclassid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachclass">
+      <EntityTypeMapping TypeName="AcademicSystemModel.teachclass">
+        <MappingFragment StoreEntitySet="teachclass">
+          <ScalarProperty Name="tclassid" ColumnName="tclassid" />
+          <ScalarProperty Name="tclassname" ColumnName="tclassname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teacher">
+      <EntityTypeMapping TypeName="AcademicSystemModel.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="tno" ColumnName="tno" />
+          <ScalarProperty Name="tname" ColumnName="tname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachingweek">
+      <EntityTypeMapping TypeName="AcademicSystemModel.teachingweek">
+        <MappingFragment StoreEntitySet="teachingweek">
+          <ScalarProperty Name="weekid" ColumnName="weekid" />
+          <ScalarProperty Name="startweek" ColumnName="startweek" />
+          <ScalarProperty Name="endweek" ColumnName="endweek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="timeslot">
+      <EntityTypeMapping TypeName="AcademicSystemModel.timeslot">
+        <MappingFragment StoreEntitySet="timeslot">
+          <ScalarProperty Name="slotid" ColumnName="slotid" />
+          <ScalarProperty Name="timeid1" ColumnName="timeid1" />
+          <ScalarProperty Name="timeid2" ColumnName="timeid2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="timeunit">
+      <EntityTypeMapping TypeName="AcademicSystemModel.timeunit">
+        <MappingFragment StoreEntitySet="timeunit">
+          <ScalarProperty Name="timeid" ColumnName="timeid" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="endtime" ColumnName="endtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

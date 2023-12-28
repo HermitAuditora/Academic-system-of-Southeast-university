@@ -1,0 +1,50 @@
+﻿body {
+}
+/*定义导航栏的样式，设置了背景色和内外边距。*/
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+/*定义导航栏中的每个列表项的样式，使用相对定位*/
+ul.navbar li {
+    position: relative;
+    display: inline-block;
+}
+/*定义导航栏中的链接样式，设置了内外边距、文本装饰和颜色。*/
+ul.navbar li a {
+     display: block;
+     padding: 10px 20px;
+     text-decoration: none;
+     color: #333;
+}
+/*定义鼠标悬停在导航栏列表项上时显示下拉菜单的样式，使用子选择器（>）选择下拉菜单的列表项。*/
+ul.navbar li:hover > ul.dropdown {
+     display: block;
+}
+/*定义下拉菜单的样式，使用绝对定位（position: absolute;）并设置顶部距离为导航栏高度。*/
+ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+    width:200px;
+}
+/*定义下拉菜单中的列表项样式，显示为块级元素。*/
+ul.dropdown li {
+    display: block;
+}
+/*定义下拉菜单中的链接样式，设置了内外边距和颜色。*/
+ul.dropdown li a {
+     padding: 10px 20px;
+     color: #333;
+ }
+/*定义鼠标悬停在下拉菜单中的链接上时的样式，设置了背景色。*/
+ul.dropdown li a:hover {
+     background-color: #ddd;
+}

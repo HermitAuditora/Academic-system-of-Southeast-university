@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AcademicSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="classid" />
+    </Key>
+    <Property Name="classid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="classname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="majorid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="major" Relationship="Self.FK__class__majorid__2C3393D0" FromRole="class" ToRole="major" />
+    <NavigationProperty Name="student" Relationship="Self.FK__student__classid__30F848ED" FromRole="class" ToRole="student" />
+  </EntityType>
+  <EntityType Name="course">
+    <Key>
+      <PropertyRef Name="cno" />
+    </Key>
+    <Property Name="cno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="totalperiod" Type="Int32" />
+    <Property Name="totalcredit" Type="Double" />
+    <NavigationProperty Name="section" Relationship="Self.FK__section__cno__44FF419A" FromRole="course" ToRole="section" />
+    <NavigationProperty Name="takeclass" Relationship="Self.FK__takeclass__cno__4BAC3F29" FromRole="course" ToRole="takeclass" />
+    <NavigationProperty Name="teach" Relationship="Self.FK__teach__cno__5070F446" FromRole="course" ToRole="teach" />
+  </EntityType>
+  <EntityType Name="institute">
+    <Key>
+      <PropertyRef Name="insid" />
+    </Key>
+    <Property Name="insid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="insname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="major" Relationship="Self.FK__major__insid__286302EC" FromRole="institute" ToRole="major" />
+    <NavigationProperty Name="student" Relationship="Self.FK__student__insid__2F10007B" FromRole="institute" ToRole="student" />
+  </EntityType>
+  <EntityType Name="major">
+    <Key>
+      <PropertyRef Name="majorid" />
+    </Key>
+    <Property Name="majorid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="majorname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="insid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="class" Relationship="Self.FK__class__majorid__2C3393D0" FromRole="major" ToRole="class" />
+    <NavigationProperty Name="institute" Relationship="Self.FK__major__insid__286302EC" FromRole="major" ToRole="institute" />
+    <NavigationProperty Name="student" Relationship="Self.FK__student__majorid__300424B4" FromRole="major" ToRole="student" />
+  </EntityType>
+  <EntityType Name="section">
+    <Key>
+      <PropertyRef Name="cno" />
+      <PropertyRef Name="teachingyear" />
+      <PropertyRef Name="term" />
+      <PropertyRef Name="buildingid" />
+      <PropertyRef Name="roomid" />
+      <PropertyRef Name="timeid" />
+      <PropertyRef Name="weekid" />
+      <PropertyRef Name="whichday" />
+      <PropertyRef Name="whichweek" />
+      <PropertyRef Name="tclassid" />
+    </Key>
+    <Property Name="sectionid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="teachingyear" Type="Int32" Nullable="false" />
+    <Property Name="term" Type="Int32" Nullable="false" />
+    <Property Name="buildingid" Type="Int32" Nullable="false" />
+    <Property Name="roomid" Type="Int32" Nullable="false" />
+    <Property Name="timeid" Type="Int32" Nullable="false" />
+    <Property Name="weekid" Type="Int32" Nullable="false" />
+    <Property Name="whichday" Type="Int32" Nullable="false" />
+    <Property Name="whichweek" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tclassid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="course" Relationship="Self.FK__section__cno__44FF419A" FromRole="section" ToRole="course" />
+    <NavigationProperty Name="teachclass" Relationship="Self.FK__section__tclassi__47DBAE45" FromRole="section" ToRole="teachclass" />
+    <NavigationProperty Name="timeslot" Relationship="Self.FK__section__timeid__45F365D3" FromRole="section" ToRole="timeslot" />
+    <NavigationProperty Name="teachingweek" Relationship="Self.FK__section__weekid__46E78A0C" FromRole="section" ToRole="teachingweek" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="insid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="majorid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="classid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="class" Relationship="Self.FK__student__classid__30F848ED" FromRole="student" ToRole="class" />
+    <NavigationProperty Name="institute" Relationship="Self.FK__student__insid__2F10007B" FromRole="student" ToRole="institute" />
+    <NavigationProperty Name="major" Relationship="Self.FK__student__majorid__300424B4" FromRole="student" ToRole="major" />
+    <NavigationProperty Name="takeclass" Relationship="Self.FK__takeclass__sno__4AB81AF0" FromRole="student" ToRole="takeclass" />
+  </EntityType>
+  <EntityType Name="takeclass">
+    <Key>
+      <PropertyRef Name="sno" />
+      <PropertyRef Name="cno" />
+      <PropertyRef Name="tclassid" />
+    </Key>
+    <Property Name="sno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tclassid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="grade" Type="Double" />
+    <NavigationProperty Name="course" Relationship="Self.FK__takeclass__cno__4BAC3F29" FromRole="takeclass" ToRole="course" />
+    <NavigationProperty Name="student" Relationship="Self.FK__takeclass__sno__4AB81AF0" FromRole="takeclass" ToRole="student" />
+    <NavigationProperty Name="teachclass" Relationship="Self.FK__takeclass__tclas__4CA06362" FromRole="takeclass" ToRole="teachclass" />
+  </EntityType>
+  <EntityType Name="teach">
+    <Key>
+      <PropertyRef Name="tno" />
+      <PropertyRef Name="cno" />
+      <PropertyRef Name="tclassid" />
+    </Key>
+    <Property Name="tno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tclassid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="course" Relationship="Self.FK__teach__cno__5070F446" FromRole="teach" ToRole="course" />
+    <NavigationProperty Name="teachclass" Relationship="Self.FK__teach__tclassid__5165187F" FromRole="teach" ToRole="teachclass" />
+    <NavigationProperty Name="teacher" Relationship="Self.FK__teach__tno__4F7CD00D" FromRole="teach" ToRole="teacher" />
+  </EntityType>
+  <EntityType Name="teachclass">
+    <Key>
+      <PropertyRef Name="tclassid" />
+    </Key>
+    <Property Name="tclassid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tclassname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="section" Relationship="Self.FK__section__tclassi__47DBAE45" FromRole="teachclass" ToRole="section" />
+    <NavigationProperty Name="takeclass" Relationship="Self.FK__takeclass__tclas__4CA06362" FromRole="teachclass" ToRole="takeclass" />
+    <NavigationProperty Name="teach" Relationship="Self.FK__teach__tclassid__5165187F" FromRole="teachclass" ToRole="teach" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="tno" />
+    </Key>
+    <Property Name="tno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="teach" Relationship="Self.FK__teach__tno__4F7CD00D" FromRole="teacher" ToRole="teach" />
+  </EntityType>
+  <EntityType Name="teachingweek">
+    <Key>
+      <PropertyRef Name="weekid" />
+    </Key>
+    <Property Name="weekid" Type="Int32" Nullable="false" />
+    <Property Name="startweek" Type="Int32" />
+    <Property Name="endweek" Type="Int32" />
+    <NavigationProperty Name="section" Relationship="Self.FK__section__weekid__46E78A0C" FromRole="teachingweek" ToRole="section" />
+  </EntityType>
+  <EntityType Name="timeslot">
+    <Key>
+      <PropertyRef Name="slotid" />
+    </Key>
+    <Property Name="slotid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="timeid1" Type="Int32" />
+    <Property Name="timeid2" Type="Int32" />
+    <NavigationProperty Name="section" Relationship="Self.FK__section__timeid__45F365D3" FromRole="timeslot" ToRole="section" />
+    <NavigationProperty Name="timeunit" Relationship="Self.FK__timeslot__timeid__3E52440B" FromRole="timeslot" ToRole="timeunit" />
+    <NavigationProperty Name="timeunit1" Relationship="Self.FK__timeslot__timeid__3F466844" FromRole="timeslot" ToRole="timeunit" />
+  </EntityType>
+  <EntityType Name="timeunit">
+    <Key>
+      <PropertyRef Name="timeid" />
+    </Key>
+    <Property Name="timeid" Type="Int32" Nullable="false" />
+    <Property Name="starttime" Type="Time" Precision="7" />
+    <Property Name="endtime" Type="Time" Precision="7" />
+    <NavigationProperty Name="timeslot" Relationship="Self.FK__timeslot__timeid__3E52440B" FromRole="timeunit" ToRole="timeslot" />
+    <NavigationProperty Name="timeslot1" Relationship="Self.FK__timeslot__timeid__3F466844" FromRole="timeunit" ToRole="timeslot" />
+  </EntityType>
+  <Association Name="FK__class__majorid__2C3393D0">
+    <End Role="major" Type="Self.major" Multiplicity="0..1" />
+    <End Role="class" Type="Self.class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="major">
+        <PropertyRef Name="majorid" />
+      </Principal>
+      <Dependent Role="class">
+        <PropertyRef Name="majorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student__classid__30F848ED">
+    <End Role="class" Type="Self.class" Multiplicity="0..1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="classid" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="classid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__section__cno__44FF419A">
+    <End Role="course" Type="Self.course" Multiplicity="1" />
+    <End Role="section" Type="Self.section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="cno" />
+      </Principal>
+      <Dependent Role="section">
+        <PropertyRef Name="cno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__takeclass__cno__4BAC3F29">
+    <End Role="course" Type="Self.course" Multiplicity="1" />
+    <End Role="takeclass" Type="Self.takeclass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="cno" />
+      </Principal>
+      <Dependent Role="takeclass">
+        <PropertyRef Name="cno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teach__cno__5070F446">
+    <End Role="course" Type="Self.course" Multiplicity="1" />
+    <End Role="teach" Type="Self.teach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="cno" />
+      </Principal>
+      <Dependent Role="teach">
+        <PropertyRef Name="cno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__major__insid__286302EC">
+    <End Role="institute" Type="Self.institute" Multiplicity="0..1" />
+    <End Role="major" Type="Self.major" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="institute">
+        <PropertyRef Name="insid" />
+      </Principal>
+      <Dependent Role="major">
+        <PropertyRef Name="insid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student__insid__2F10007B">
+    <End Role="institute" Type="Self.institute" Multiplicity="0..1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="institute">
+        <PropertyRef Name="insid" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="insid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student__majorid__300424B4">
+    <End Role="major" Type="Self.major" Multiplicity="0..1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="major">
+        <PropertyRef Name="majorid" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="majorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__section__tclassi__47DBAE45">
+    <End Role="teachclass" Type="Self.teachclass" Multiplicity="1" />
+    <End Role="section" Type="Self.section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teachclass">
+        <PropertyRef Name="tclassid" />
+      </Principal>
+      <Dependent Role="section">
+        <PropertyRef Name="tclassid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__section__timeid__45F365D3">
+    <End Role="timeslot" Type="Self.timeslot" Multiplicity="1" />
+    <End Role="section" Type="Self.section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="timeslot">
+        <PropertyRef Name="slotid" />
+      </Principal>
+      <Dependent Role="section">
+        <PropertyRef Name="timeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__section__weekid__46E78A0C">
+    <End Role="teachingweek" Type="Self.teachingweek" Multiplicity="1" />
+    <End Role="section" Type="Self.section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teachingweek">
+        <PropertyRef Name="weekid" />
+      </Principal>
+      <Dependent Role="section">
+        <PropertyRef Name="weekid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__takeclass__sno__4AB81AF0">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="takeclass" Type="Self.takeclass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="sno" />
+      </Principal>
+      <Dependent Role="takeclass">
+        <PropertyRef Name="sno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__takeclass__tclas__4CA06362">
+    <End Role="teachclass" Type="Self.teachclass" Multiplicity="1" />
+    <End Role="takeclass" Type="Self.takeclass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teachclass">
+        <PropertyRef Name="tclassid" />
+      </Principal>
+      <Dependent Role="takeclass">
+        <PropertyRef Name="tclassid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teach__tclassid__5165187F">
+    <End Role="teachclass" Type="Self.teachclass" Multiplicity="1" />
+    <End Role="teach" Type="Self.teach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teachclass">
+        <PropertyRef Name="tclassid" />
+      </Principal>
+      <Dependent Role="teach">
+        <PropertyRef Name="tclassid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teach__tno__4F7CD00D">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+    <End Role="teach" Type="Self.teach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="tno" />
+      </Principal>
+      <Dependent Role="teach">
+        <PropertyRef Name="tno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__timeslot__timeid__3E52440B">
+    <End Role="timeunit" Type="Self.timeunit" Multiplicity="0..1" />
+    <End Role="timeslot" Type="Self.timeslot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="timeunit">
+        <PropertyRef Name="timeid" />
+      </Principal>
+      <Dependent Role="timeslot">
+        <PropertyRef Name="timeid1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__timeslot__timeid__3F466844">
+    <End Role="timeunit" Type="Self.timeunit" Multiplicity="0..1" />
+    <End Role="timeslot" Type="Self.timeslot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="timeunit">
+        <PropertyRef Name="timeid" />
+      </Principal>
+      <Dependent Role="timeslot">
+        <PropertyRef Name="timeid2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AcademicSystemEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="class" EntityType="Self.class" />
+    <EntitySet Name="course" EntityType="Self.course" />
+    <EntitySet Name="institute" EntityType="Self.institute" />
+    <EntitySet Name="major" EntityType="Self.major" />
+    <EntitySet Name="section" EntityType="Self.section" />
+    <EntitySet Name="student" EntityType="Self.student" />
+    <EntitySet Name="takeclass" EntityType="Self.takeclass" />
+    <EntitySet Name="teach" EntityType="Self.teach" />
+    <EntitySet Name="teachclass" EntityType="Self.teachclass" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" />
+    <EntitySet Name="teachingweek" EntityType="Self.teachingweek" />
+    <EntitySet Name="timeslot" EntityType="Self.timeslot" />
+    <EntitySet Name="timeunit" EntityType="Self.timeunit" />
+    <AssociationSet Name="FK__class__majorid__2C3393D0" Association="Self.FK__class__majorid__2C3393D0">
+      <End Role="major" EntitySet="major" />
+      <End Role="class" EntitySet="class" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student__classid__30F848ED" Association="Self.FK__student__classid__30F848ED">
+      <End Role="class" EntitySet="class" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__section__cno__44FF419A" Association="Self.FK__section__cno__44FF419A">
+      <End Role="course" EntitySet="course" />
+      <End Role="section" EntitySet="section" />
+    </AssociationSet>
+    <AssociationSet Name="FK__takeclass__cno__4BAC3F29" Association="Self.FK__takeclass__cno__4BAC3F29">
+      <End Role="course" EntitySet="course" />
+      <End Role="takeclass" EntitySet="takeclass" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teach__cno__5070F446" Association="Self.FK__teach__cno__5070F446">
+      <End Role="course" EntitySet="course" />
+      <End Role="teach" EntitySet="teach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__major__insid__286302EC" Association="Self.FK__major__insid__286302EC">
+      <End Role="institute" EntitySet="institute" />
+      <End Role="major" EntitySet="major" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student__insid__2F10007B" Association="Self.FK__student__insid__2F10007B">
+      <End Role="institute" EntitySet="institute" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student__majorid__300424B4" Association="Self.FK__student__majorid__300424B4">
+      <End Role="major" EntitySet="major" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__section__tclassi__47DBAE45" Association="Self.FK__section__tclassi__47DBAE45">
+      <End Role="teachclass" EntitySet="teachclass" />
+      <End Role="section" EntitySet="section" />
+    </AssociationSet>
+    <AssociationSet Name="FK__section__timeid__45F365D3" Association="Self.FK__section__timeid__45F365D3">
+      <End Role="timeslot" EntitySet="timeslot" />
+      <End Role="section" EntitySet="section" />
+    </AssociationSet>
+    <AssociationSet Name="FK__section__weekid__46E78A0C" Association="Self.FK__section__weekid__46E78A0C">
+      <End Role="teachingweek" EntitySet="teachingweek" />
+      <End Role="section" EntitySet="section" />
+    </AssociationSet>
+    <AssociationSet Name="FK__takeclass__sno__4AB81AF0" Association="Self.FK__takeclass__sno__4AB81AF0">
+      <End Role="student" EntitySet="student" />
+      <End Role="takeclass" EntitySet="takeclass" />
+    </AssociationSet>
+    <AssociationSet Name="FK__takeclass__tclas__4CA06362" Association="Self.FK__takeclass__tclas__4CA06362">
+      <End Role="teachclass" EntitySet="teachclass" />
+      <End Role="takeclass" EntitySet="takeclass" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teach__tclassid__5165187F" Association="Self.FK__teach__tclassid__5165187F">
+      <End Role="teachclass" EntitySet="teachclass" />
+      <End Role="teach" EntitySet="teach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teach__tno__4F7CD00D" Association="Self.FK__teach__tno__4F7CD00D">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="teach" EntitySet="teach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__timeslot__timeid__3E52440B" Association="Self.FK__timeslot__timeid__3E52440B">
+      <End Role="timeunit" EntitySet="timeunit" />
+      <End Role="timeslot" EntitySet="timeslot" />
+    </AssociationSet>
+    <AssociationSet Name="FK__timeslot__timeid__3F466844" Association="Self.FK__timeslot__timeid__3F466844">
+      <End Role="timeunit" EntitySet="timeunit" />
+      <End Role="timeslot" EntitySet="timeslot" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,236 @@
+html,
+body {
+    background-color: #fff;
+    color: #222;
+    min-width: 1000px;
+    width: 100%;
+    font: 10px Microsoft YaHei !important;
+}
+
+.logoheader {
+    width: 80%;
+    padding: 38px 0;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.mottoimg {
+    position: relative;
+    margin-top: 1.5%;
+    width: 26%;
+    float: right;
+    top: -104px;
+    left: -951px;
+}
+
+.logoimgg {
+    width: 32%;
+}
+
+.carousel-indicators li {
+    border: none;
+    background-color: #fff;
+}
+
+.carousel-indicators .active {
+    background-color: #057fe5;
+}
+
+.navlifooter {
+    text-align: center;
+    margin-top: 5%;
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.ptxppp {
+    display: inline-block;
+}
+
+.rigtxttspanpp {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.p-tell {
+    margin-top: 3px;
+}
+
+.authorversion {
+    text-align: center;
+    color: #666;
+    font-size: 1.4rem;
+    margin-top: 34px;
+    margin-bottom: 26px;
+}
+
+.actdissplite {
+    display: inline-block;
+    width: 2px;
+    background: rgb(227, 243, 252);
+    height: 60px;
+    margin: 0 16px;
+    vertical-align: middle;
+}
+
+.lefspantxt {
+    font-size: 26px;
+    color: #434343;
+    vertical-align: middle;
+}
+
+/*loginbox*/
+.carouselandlogin {
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+
+.item img {
+    width: 100%;
+    height: 450px !important;
+}
+
+.loginbox {
+    display:   block;
+    position: absolute;
+    width: 280px;
+    background: rgba(255, 255, 255, .5);
+    padding: 15px;
+    right: 8%;
+    top: 17%
+}
+#Login1_LoginButton {
+    background-color: forestgreen;
+    color: white;
+    font-size: 16px;
+}
+
+.login_uaap_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+}
+
+.login_uaap_box a, .login_uaap_box a:hover, .login_uaap_box a:focus {
+    width: 100% !important;
+    padding: 10px 0 !important;
+    margin: 10px 0 !important;
+}
+
+.innerboxdiv {
+    background: rgba(0, 0, 0, .5);
+}
+
+.h3title {
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    padding: 16px 0;
+}
+
+.innerinputvessel {
+    width: 90%;
+    margin: auto;
+}
+
+.addlabel {
+    width: 26%;
+    font-size: 16px;
+    color: #fff;
+    vertical-align: middle;
+
+}
+
+.baseinput {
+
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.inputtxt {
+    width: 70%;
+}
+
+.divvessel {
+    margin-bottom: 14px;
+}
+
+.verifyinputcode {
+    width: 33%;
+}
+
+.verifyimggg {
+    width: 33%;
+    height: 31px;
+    float: right;
+}
+
+.blue:hover,
+.blue:focus,
+.blue:active:focus,
+.blue {
+    padding: 4px 12px;
+    width: 46%;
+    background-color: #0272d0;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+}
+
+.gray:hover,
+.gray:focus,
+.gray:active:focus,
+.gray {
+    padding: 4px 12px;
+    width: 46%;
+    float: right;
+    background-color: #9e9c9b;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+}
+
+.forgerpasswoord {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.lockimg {
+    margin-right: 6px;
+}
+
+.btngroupp {
+    margin-bottom: 10px;
+}
+
+.psdiv {
+    color: #fff;
+    font-size: 14px;
+    padding-bottom: 16px;
+}
+
+.show-tip {
+    color: red;
+    font-size: 16px;
+
+}
+
+.marrgllper {
+    margin-left: 26%;
+}
+
+@media screen and (min-width: 1660px) {
+    .item img {
+        width: 100%;
+        height: 550px !important;
+    }
+}

@@ -1,0 +1,129 @@
+﻿body {
+}
+
+.header {
+    height: 70px;
+    background: hsl(205, 100%, 50%);
+    box-shadow: 0 2px 12px 0 rgb(0 0 0/10%);
+    border: 1px solid #EBEEF5;
+}
+
+.round_image {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    bottom: -20px;
+    right:-5px;
+    overflow: hidden;
+    border-radius: 50%;
+
+}
+
+.round_image::before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* 宽高比为 1:1，创建一个正方形 */
+}
+
+.round_image img {
+    position: absolute;
+    top: 0%;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 图像按比例缩放以填充容器 */
+}
+.sname_place {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+.label_place {
+    position: absolute;
+    top: 80%;
+    left: 30%;
+}
+.more_label{
+    position:absolute;
+    bottom: 10%;
+    right: 5%;
+    color:blue;
+}
+.gridview-style caption {
+    border: 1px solid #000;
+    background-color: #ffffff;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    font-size:16px;
+}
+.gridview-header {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+.gridview-style td {
+    width: 160px; /* 设置单元格宽度 */
+    height:100px; /* 设置单元格高度 */
+}
+.course_style{
+    color:blue;
+}
+.my_calendar{
+}
+.myCalendar .DayName {
+    text-align: center;
+}
+.horizontalNodes {
+    display: inline-block;
+    margin-right: 20px; /* 调整节点之间的水平间距 */
+}
+
+
+.bluewhite_bg {
+    padding: 20px;
+    background: #EBEEF5;
+    text-align:center;
+}
+.classcolor {
+    color:#bce8f1;
+}
+.selectcourse_view {
+    border: none; /* 取消边框 */
+}
+.selectcourse_view th{
+    border-right: none;
+    border-left:none;
+    border-bottom-color: gray;
+    color: black;
+    text-align:center
+} 
+.selectcourse_view td {
+    border-right: none;
+    border-left:none;
+    border-bottom-color: #ccc;
+    width:200px;
+    text-align:center;
+}
+.btn_blue{
+    background-color:lightblue;
+}
+/*其实是橘色，但用的地方太多了就不改名字了*/
+.btn_green{
+    background-color:orangered;
+}
+.panel1{
+    display:none;
+}
+.menu {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: yellow;
+    border: none;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    width:1330px;
+}
